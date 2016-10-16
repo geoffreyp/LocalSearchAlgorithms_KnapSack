@@ -22,7 +22,7 @@ public class KnapSack extends Problem {
 		this.profits = Files.readAllLines(Paths.get(fileName)).get(1).split(" ");
 		this.weights = Files.readAllLines(Paths.get(fileName)).get(2).split(" ");
 		this.weightMax = new Integer(Files.readAllLines(Paths.get(fileName)).get(3));
-		
+
 		// Generate a random solution for this sack
 		this.solution = generateRandomSolution();
 	}
