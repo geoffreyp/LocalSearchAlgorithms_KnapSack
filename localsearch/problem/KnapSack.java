@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import localsearch.problem.base.Problem;
-
-public class KnapSack extends Problem {
+public class KnapSack {
 
 	private final String	fileName;	// ks_1000.dat
 	private Integer			nbObject;
@@ -27,7 +25,10 @@ public class KnapSack extends Problem {
 		this.solution = generateRandomSolution();
 	}
 
-	@Override
+	
+	/**
+	 * Evalue le problème courant
+	 */
 	public float eval() {
 		int w = w();
 		int z = z();
@@ -58,7 +59,7 @@ public class KnapSack extends Problem {
 		for (int i = 0; i < profits.length; i++) {
 			res += new Integer(profits[i]) * solution[i];
 		}
-
+		// System.out.println("Debug : z="+res);
 		return res;
 	}
 
@@ -77,10 +78,10 @@ public class KnapSack extends Problem {
 	/**
 	 * @return a random solution for the knapSack problem
 	 */
-	private int[] generateRandomSolution() {
-		int bag[] = new int[this.nbObject];
-		for (int i = 0; i < bag.length; i++) {
-			bag[i] = (int) Math.round(Math.random());
+	public int[] generateRandomSolution() {
+		int[] bag = new int[this.nbObject];
+		for (int i = 0; i < this.nbObject; i++) {
+			bag[i] = ((int) Math.round(Math.random()));
 		}
 
 		return bag;
