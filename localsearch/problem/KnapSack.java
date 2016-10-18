@@ -27,7 +27,7 @@ public class KnapSack {
 
 	
 	/**
-	 * Evalue le problème courant
+	 * Evaluate the KnapSack problem
 	 */
 	public float eval() {
 		int w = w();
@@ -63,6 +63,7 @@ public class KnapSack {
 		return res;
 	}
 
+
 	/**
 	 * @return int value : the weight of the actual solution
 	 */
@@ -86,5 +87,22 @@ public class KnapSack {
 
 		return bag;
 	}
+	
+	/*
+	 * Getters / Setters
+	 */
+	public String getFileName() {
+		return fileName;
+	}
+	
+	public int[] getSolution() {
+		return solution;
+	}
+
+
+	public void setSolution(int[] solution) {
+		this.solution = solution;
+	}
+
 
 }
