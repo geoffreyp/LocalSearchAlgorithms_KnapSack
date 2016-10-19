@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import localsearch.problem.KnapSack;
 
-public class RandomSearch {
+public class RandomSearch extends Algo{
 
 	private final int		nbEvalMax;
 	private final KnapSack	kp;
@@ -14,6 +14,7 @@ public class RandomSearch {
 		this.kp = kp;
 	}
 
+	@Override
 	public void run() throws IOException {
 		float evalTemp, evalMax = kp.eval();
 		
@@ -27,7 +28,7 @@ public class RandomSearch {
 			}
 		}
 		
-		System.out.println("The best solution after "+nbEvalMax+" evaluation is "+evalMax);
+		System.out.println("The best solution after "+nbEvalMax+" evaluations is "+evalMax);
 	}
 
 }
