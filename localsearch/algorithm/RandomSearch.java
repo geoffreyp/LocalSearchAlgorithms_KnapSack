@@ -6,12 +6,8 @@ import localsearch.problem.KnapSack;
 
 public class RandomSearch extends Algo{
 
-	private final int		nbEvalMax;
-	private final KnapSack	kp;
-
 	public RandomSearch(KnapSack kp, int nbEvalMax) {
-		this.nbEvalMax = nbEvalMax;
-		this.kp = kp;
+		super(kp, nbEvalMax);
 	}
 
 	@Override
