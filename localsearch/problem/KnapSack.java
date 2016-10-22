@@ -25,7 +25,6 @@ public class KnapSack {
 		this.solution = generateRandomSolution();
 	}
 
-	
 	/**
 	 * Evaluate the KnapSack problem
 	 */
@@ -63,7 +62,6 @@ public class KnapSack {
 		return res;
 	}
 
-
 	/**
 	 * @return int value : the weight of the actual solution
 	 */
@@ -87,22 +85,29 @@ public class KnapSack {
 
 		return bag;
 	}
-	
+
 	/*
 	 * Getters / Setters
 	 */
 	public String getFileName() {
 		return fileName;
 	}
-	
+
 	public int[] getSolution() {
 		return solution;
 	}
 
-
-	public void setSolution(int[] solution) {
+	public void setSolutionByReference(int[] solution) {
 		this.solution = solution;
 	}
+	public void setSolutionByCopy(int[] solution) {
+		for(int i=0; i<solution.length; i++){
+			this.solution[i] = solution[i];
+		}
+	}
 
+	public void setSolution(int indice, int value) {
+		this.solution[indice] = value;
+	}
 
 }

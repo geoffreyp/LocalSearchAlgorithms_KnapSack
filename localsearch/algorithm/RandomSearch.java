@@ -20,7 +20,7 @@ public class RandomSearch extends Algo{
 			
 			if(evalMax < evalTemp){
 				evalMax = evalTemp;
-				kp.setSolution(kp_tmp.getSolution());
+				kp.setSolutionByReference(kp_tmp.getSolution());
 			}
 		}
 		
