@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 import localsearch.algorithm.HillClimberBestImprovement;
 import localsearch.algorithm.HillClimberFirstImprovement;
 import localsearch.algorithm.RandomSearch;
@@ -10,28 +8,39 @@ public class Run {
 
 	public static void main(String[] args) {
 		try {
-//				KnapSack kp1 = new KnapSack("ks_1000.dat");
-//				System.out.println("Random Search :");
-//				RandomSearch rs = new RandomSearch(kp1, 100000);
-//				rs.run();
-//
-//				KnapSack kp2 = new KnapSack("ks_1000.dat");
-//				System.out.println("Random Walk :");
-//				RandomWalk rw = new RandomWalk(kp2, 100000);
-//				rw.run();	
-				
+			KnapSack kp = new KnapSack("ks_1000.dat");
 
-//				KnapSack kp3 = new KnapSack("ks_1000.dat");
-//				System.out.println("HC Best Improvement:");
-//				HillClimberBestImprovement hcb = new HillClimberBestImprovement(kp3, 0);
-//				hcb.run();
-				
-			
-			KnapSack kp4 = new KnapSack("ks_1000.dat");
-			System.out.println("HC First Improvement:");
-			HillClimberFirstImprovement hcf = new HillClimberFirstImprovement(kp4, 2000);
-			hcf.run();
-		} catch (IOException e) {
+			switch (args[0]) {
+			case "rs":
+				System.out.println("Random Search");
+				RandomSearch rs = new RandomSearch(kp, 100000);
+				rs.run();
+				break;
+			case "rw":
+				System.out.println("Random Walk");
+				RandomWalk rw = new RandomWalk(kp, 100000);
+				rw.run();
+				break;
+			case "hcb":
+				System.out.println("Hill Climber Best Improvement");
+				HillClimberBestImprovement hcb = new HillClimberBestImprovement(kp, 0);
+				hcb.run();
+				break;
+			case "hcf":
+				System.out.println("Hill Climber First Improvement");
+				HillClimberFirstImprovement hcf = new HillClimberFirstImprovement(kp, 10000);
+				hcf.run();
+				break;
+
+			default:
+				System.err.println("The algorithm " + args[0] + " is incorrect. Please use as first argument :");
+				System.err.println("rs : Random Search");
+				System.out.println("rw :Random Walk");
+				System.out.println("hcb :Hill Climber Best Improvement");
+				System.out.println("hcf :Hill Climber First Improvement");
+				break;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
