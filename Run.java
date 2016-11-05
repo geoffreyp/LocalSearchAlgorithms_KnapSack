@@ -13,22 +13,22 @@ public class Run {
 			switch (args[0]) {
 			case "rs":
 				System.out.println("Random Search");
-				RandomSearch rs = new RandomSearch(kp, 100000);
+				RandomSearch rs = new RandomSearch(kp, new Integer(args[1]));
 				rs.run();
 				break;
 			case "rw":
 				System.out.println("Random Walk");
-				RandomWalk rw = new RandomWalk(kp, 100000);
+				RandomWalk rw = new RandomWalk(kp, new Integer(args[1]));
 				rw.run();
 				break;
 			case "hcb":
 				System.out.println("Hill Climber Best Improvement");
-				HillClimberBestImprovement hcb = new HillClimberBestImprovement(kp, 0);
+				HillClimberBestImprovement hcb = new HillClimberBestImprovement(kp, new Integer(args[1]));
 				hcb.run();
 				break;
 			case "hcf":
 				System.out.println("Hill Climber First Improvement");
-				HillClimberFirstImprovement hcf = new HillClimberFirstImprovement(kp, 10000);
+				HillClimberFirstImprovement hcf = new HillClimberFirstImprovement(kp, new Integer(args[1]));
 				hcf.run();
 				break;
 
@@ -42,6 +42,7 @@ public class Run {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.err.println("First arg : algo ; Second arg : number of evaluations");
 		}
 
 	}

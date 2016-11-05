@@ -16,6 +16,7 @@ public class HillClimberBestImprovement extends Algo {
 		float eval_neighbor = 0;
 		boolean stop = false;
 		int indiceSave = 0;
+		int nbEval = 0;
 
 		/*
 		 * Search the optimum local
@@ -39,14 +40,15 @@ public class HillClimberBestImprovement extends Algo {
 			/*
 			 * Test the best neighbor solution with the actual best solution
 			 */
-			if(eval < eval_neighbor){
+			if(eval < eval_neighbor && nbEval < nbEvalMax){
 				eval = eval_neighbor;
 				kp.setSolution(indiceSave,(kp.getSolution()[indiceSave] == 1)? 0 : 1);
 			}else{
 				stop = true;
 			}
+			nbEval++;
 		}
-		System.out.println("The best solution founded is "+eval);
+		System.out.println("The best solution founded is "+eval+" after "+nbEval+" evaluations");
 	}
 
 }
