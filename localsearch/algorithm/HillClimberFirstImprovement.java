@@ -15,18 +15,18 @@ public class HillClimberFirstImprovement extends Algo {
 	public void run() throws IOException {
 		float eval = kp.eval();
 		float best_eval_neighbor = 0;
-		boolean stop = false;
 		int indiceSave = 0;
+		int nbEval = 0;
 
 		/*
 		 * Search the optimum local
 		 */
-		while (!stop) { // infinite loop to debug
+		while (nbEval < nbEvalMax) {
 			/*
 			 * Search a better neighbor solution than the actual solution
 			 */
 			boolean betterSolutionFounded = false;
-			int nbEval = 0;
+			
 			do {
 				// Take a random neighbor solution
 				KnapSack kp_neighbor = new KnapSack(kp.getFileName());
@@ -35,7 +35,7 @@ public class HillClimberFirstImprovement extends Algo {
 				nbEval++;
 				kp_neighbor.setSolution(randomIndice, (kp_neighbor.getSolution()[randomIndice] == 1) ? 0 : 1);
 				
-				System.out.println("Debug : "+nbEval+".) "+best_eval_neighbor+" < "+kp_neighbor.eval());
+				//System.out.println("Debug : "+nbEval+".) "+best_eval_neighbor+" < "+kp_neighbor.eval());
 				
 				// Test the random neighbor solution
 				if (best_eval_neighbor < kp_neighbor.eval()) {
@@ -51,6 +51,7 @@ public class HillClimberFirstImprovement extends Algo {
 			 * Test the best neighbor solution with the actual best solution
 			 */
 			if (eval < best_eval_neighbor) {
+				System.out.println("ca passe");
 				eval = best_eval_neighbor;
 				kp.setSolution(indiceSave, (kp.getSolution()[indiceSave] == 1) ? 0 : 1);
 			}
