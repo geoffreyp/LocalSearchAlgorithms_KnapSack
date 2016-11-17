@@ -1,6 +1,13 @@
 package localsearch.algorithm;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 import localsearch.problem.KnapSack;
 
@@ -51,4 +58,34 @@ public class HillClimberBestImprovement extends Algo {
 		System.out.println("The best solution founded is "+eval+" after "+nbEval+" evaluations");
 	}
 
+	@Override
+	public void writeLog(String file) throws IOException {
+		// TODO Auto-generated method stub
+			String chaine="";
+			try{
+				InputStream ips=new FileInputStream(file); 
+				InputStreamReader ipsr=new InputStreamReader(ips);
+				BufferedReader br=new BufferedReader(ipsr);
+				String ligne;
+				while ((ligne=br.readLine())!=null){
+					System.out.println(ligne);
+					chaine+=ligne+"\n";
+				}
+				br.close(); 
+			}		
+			catch (Exception e){
+				System.out.println(e.toString());
+			}
+			
+			try {
+				FileWriter fw = new FileWriter(file);
+				BufferedWriter bw = new BufferedWriter (fw);
+				PrintWriter fichierSortie = new PrintWriter (bw); 
+				fichierSortie.println(chaine); 
+				fichierSortie.close();
+			}
+			catch (Exception e){
+				System.out.println(e.toString());
+			}		
+		}
 }

@@ -34,4 +34,10 @@ public class RandomWalk extends Algo {
 			this.kp.getSolution()[voisin] = 0;
 	}
 
+	@Override
+	public void writeLog(String file) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
