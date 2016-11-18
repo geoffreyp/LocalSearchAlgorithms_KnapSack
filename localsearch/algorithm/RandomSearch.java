@@ -27,4 +27,10 @@ public class RandomSearch extends Algo{
 		System.out.println("The best solution after "+nbEvalMax+" evaluations is "+evalMax);
 	}
 
+	@Override
+	public void writeLog(String file) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

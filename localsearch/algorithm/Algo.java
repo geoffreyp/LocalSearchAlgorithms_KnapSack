@@ -15,4 +15,5 @@ public abstract class Algo {
 	}
 
 	public abstract void run() throws IOException;
+	public abstract void writeLog(String file) throws IOException;
 }
